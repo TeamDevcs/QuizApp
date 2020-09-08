@@ -9,41 +9,41 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  String email, password;
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
+  // String email, password;
   bool _rememberPassword = false;
 
-  void _signIn({String em, String, pw}) {
-    _auth
-        .signInWithEmailAndPassword(email: em, password: pw)
-        .then((authResult) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return Container(
-          color: Colors.yellow,
-          child: Text('Welcome ${authResult.user.email}'),
-        );
-      }));
-    }).catchError((err) {
-      print(err.code);
-      if (err.code == 'ERROR_WRONG_PASSWORD') {
-        showCupertinoDialog(
-            context: context,
-            builder: (context) {
-              return CupertinoAlertDialog(
-                title: Text('The password was incorrect, please try again'),
-                actions: <Widget>[
-                  CupertinoDialogAction(
-                    child: Text('OK'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  )
-                ],
-              );
-            });
-      }
-    });
-  }
+  // void _signIn({String em, String pw}) {
+  //   _auth
+  //       .signInWithEmailAndPassword(email: em, password: pw)
+  //       .then((authResult) {
+  //     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+  //       return Container(
+  //         color: Colors.yellow,
+  //         child: Text('Welcome ${authResult.user.email}'),
+  //       );
+  //     }));
+  //   }).catchError((err) {
+  //     print(err.code);
+  //     if (err.code == 'ERROR_WRONG_PASSWORD') {
+  //       showCupertinoDialog(
+  //           context: context,
+  //           builder: (context) {
+  //             return CupertinoAlertDialog(
+  //               title: Text('The password was incorrect, please try again'),
+  //               actions: <Widget>[
+  //                 CupertinoDialogAction(
+  //                   child: Text('OK'),
+  //                   onPressed: () {
+  //                     Navigator.pop(context);
+  //                   },
+  //                 )
+  //               ],
+  //             );
+  //           });
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +65,11 @@ class _SignInState extends State<SignIn> {
                   ),
                   SizedBox(height: 20.0),
                   TextField(
-                    onChanged: (textVal) {
-                      setState(() {
-                        email = textVal;
-                      });
-                    },
+                    // onChanged: (textVal) {
+                    //   setState(() {
+                    //     email = textVal;
+                    //   });
+                    // },
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white)),
@@ -85,11 +85,11 @@ class _SignInState extends State<SignIn> {
                   ),
                   SizedBox(height: 20.0),
                   TextField(
-                    onChanged: (textVal) {
-                      setState(() {
-                        password = textVal;
-                      });
-                    },
+                    // onChanged: (textVal) {
+                    //   setState(() {
+                    //     password = textVal;
+                    //   });
+                    // },
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
@@ -135,7 +135,7 @@ class _SignInState extends State<SignIn> {
                     children: <Widget>[
                       InkWell(
                         onTap: () {
-                          _signIn(em: email, pw: password);
+                          // _signIn(em: email, pw: password);
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(
